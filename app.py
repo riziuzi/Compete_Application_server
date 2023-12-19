@@ -6,7 +6,7 @@ import os
 import applications
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)       # Allowing cross origin resource sharing, passing the SOP
 
 uri = "mongodb+srv://riziuzi:GClDGPPK1AZwCcEP@riziuzicluster.ulcokkb.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri)
