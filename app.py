@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 from pymongo.mongo_client import MongoClient
 from flask_cors import CORS  # Import the CORS extension
 import os
-# import applications
+import applications
 
 app = Flask(__name__)
 CORS(app)       # Allowing cross origin resource sharing, passing the SOP
@@ -28,9 +28,9 @@ def submit_task():
         # print(data)
         usr_name = "rishiSIR"                                   # ??????????????????????????
         task_collection = db[f"{usr_name}_collection"]
-        # answer = applications.Summarize(data["message"])
-        answer = {"task":"Task Name"}
-        # print(answer)                       # Heavy time consumer!!!!!!!!!!!!
+        answer = applications.Summarize(data["message"])
+        # answer = {"task":"Task Name"}
+        print(answer)                       # Heavy time consumer!!!!!!!!!!!!
         # print(applications.QnA("Today, I spent 2 hours working on the project. I started by reviewing the project requirements and then moved on to creating a rough outline of the project. I also spent some time researching the best tools to use for the project. I ran into a few issues with the tools, but I was able to resolve them after some troubleshooting. Overall, I feel like I made good progress today and I’m looking forward to continuing to work on the project tomorrow."))
         if(answer["task"]==""):
             answer["task"] = "Unknown Task"
@@ -55,8 +55,8 @@ def get_blogs():
 
 
 
-# if __name__=="__main__":
-#     app.run(host="0.0.0.0", port=5000)
+if __name__=="__main__":
+    app.run(host="0.0.0.0", port=5000)
 
 
 

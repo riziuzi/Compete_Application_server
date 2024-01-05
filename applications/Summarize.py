@@ -2,8 +2,8 @@ model_name = "snrspeaks/t5-one-line-summary"
 
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-# model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-# tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
 def Summarize(abstract = """We describe a system called Overton, whose main design goal is to 
